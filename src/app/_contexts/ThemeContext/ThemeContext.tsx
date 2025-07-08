@@ -1,11 +1,11 @@
+'use client';
+import { createContext, useContext, useState } from 'react';
+
 /* 
     ThemeContext is a context that provides the theme to the app.
     - Stores theme in context
     - Provides updating capabilities for theme (light/dark)
 */
-
-import { createContext, useContext, useState } from 'react';
-
 interface ThemeContextType {
   theme: string;
   setTheme: React.Dispatch<React.SetStateAction<string>>;
