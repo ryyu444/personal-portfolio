@@ -15,6 +15,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Run linting
+        run: npm run lint
+
       - name: Install Vercel CLI & pull environment
         run: |
           npm install --global vercel@latest
