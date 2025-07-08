@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from './_components/(navigation)/navbar/Navbar';
 import Footer from './_components/(navigation)/footer/Footer';
+import { ThemeProvider } from './_contexts/ThemeContext/ThemeContext';
 import './globals.css';
 
 const inter = Inter({
@@ -11,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Ryan's Portfolio",
-  description: 'A showcase of me and my work',
+  description: 'A website showcasing my work and skills',
 };
 
 export default function RootLayout({
@@ -22,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${inter.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
