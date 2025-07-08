@@ -18,6 +18,7 @@ jobs:
       - name: Install dependencies, pull environment, and lint code
         run: |
           npm install
+          npm install --global vercel@latest 
           vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
           npm run lint
 
