@@ -15,13 +15,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Vercel & pull environment
+      - name: Install Vercel, pull environment, and lint code
         run: |
           npm install --global vercel@latest
           vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Lint code for errors
-        run: npm run lint
+          npm run lint
 
       - name: Create prod build
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
